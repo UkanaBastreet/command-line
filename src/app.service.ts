@@ -3,8 +3,9 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    console.log('getHello');
+    const VERCEL_URL = process.env.VERCEL_URL;
 
-    return 'Hello World!';
+    console.log('VERCEL_URL: ', VERCEL_URL);
+    return 'VERCEL_URL: ' + VERCEL_URL;
   }
 }
