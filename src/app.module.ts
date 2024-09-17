@@ -1,9 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { BotModule } from './bot/bot.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [],
+  imports: [
+    BotModule,
+    ConfigModule.forRoot({
+      envFilePath: '.dev.env',
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
